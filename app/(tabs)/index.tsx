@@ -191,7 +191,7 @@ export default function HomeScreen() {
         }
         style={styles.image}
         fadeDuration={0}
-        resizeMode="stretch">
+        resizeMode="cover">
         {!showLoginScreen ? (
           <>
             <Pressable style={styles.googleTap} onPress={onGoogle} />
