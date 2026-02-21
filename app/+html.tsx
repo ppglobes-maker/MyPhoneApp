@@ -15,26 +15,33 @@ export default function Root({ children }: { children: ReactNode }) {
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <style>{`
-          html, body, #root {
+          html, body {
             width: 100%;
-            height: 100dvh;
-            min-height: 100dvh;
+            height: 100%;
             margin: 0;
             padding: 0;
             background: transparent;
             overflow: hidden;
-            position: fixed;
-            inset: 0;
+          }
+          #root, #__next {
+            width: 100%;
+            height: 100%;
           }
           body > div:first-child {
+            min-height: 100dvh;
+            min-height: 100svh;
+            min-height: -webkit-fill-available;
+            width: 100%;
             position: fixed !important;
             inset: 0 !important;
-            width: 100% !important;
-            height: 100dvh !important;
-            min-height: 100dvh !important;
             margin: 0 !important;
             padding-top: 0 !important;
             padding-bottom: 0 !important;
+          }
+          .app {
+            min-height: 100dvh;
+            min-height: 100svh;
+            min-height: -webkit-fill-available;
           }
         `}</style>
         <ScrollViewStyleReset />
