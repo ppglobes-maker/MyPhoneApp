@@ -1,0 +1,41 @@
+name: Build unsigned IPA
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Install Expo CLI
+        run: npm install -g expo-cli
+      
+      - name: Build unsigned IPA
+        run: |
+          expo build:ios --non-interactive --no-publish --output-name=myapp.ipa --no-wait
+          # Alternative direct command if above fails:
+          npx expo export --platform ios
+          cd ios
+          xcodebuild -workspace *.xcworkspace -scheme myapp -configuration Release -sdk iphoneos CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: myapp-unsigned.ipa
+          path: |
+            *.ipa
+            **/*.ipa
