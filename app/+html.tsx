@@ -17,19 +17,14 @@ export default function Root({ children }: { children: ReactNode }) {
         <style>{`
           html, body, #root {
             width: 100%;
-            height: 100%;
+            height: 100dvh;
             min-height: 100dvh;
             margin: 0;
             padding: 0;
             background: transparent;
             overflow: hidden;
-          }
-          body {
             position: fixed;
             inset: 0;
-          }
-          #root {
-            height: 100dvh;
           }
         `}</style>
         <ScrollViewStyleReset />

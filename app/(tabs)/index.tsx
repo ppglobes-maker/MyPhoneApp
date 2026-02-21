@@ -189,7 +189,7 @@ export default function HomeScreen() {
               ? require('../../login-click.png')
               : require('../../start-screen.png')
         }
-        style={[styles.image, Platform.OS === 'web' ? styles.imageWebAdjust : null]}
+        style={styles.image}
         fadeDuration={0}
         resizeMode="cover">
         {!showLoginScreen ? (
@@ -380,10 +380,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-  },
-  imageWebAdjust: {
-    height: '104%',
-    transform: [{ translateY: -24 }],
   },
   fullScreenImageTap: {
     flex: 1,
