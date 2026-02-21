@@ -28,7 +28,7 @@ export default function Root({ children }: { children: ReactNode }) {
             height: 100%;
           }
           body > div:first-child {
-            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-top: max(env(safe-area-inset-top, 0px), 44px);
             min-height: 100dvh;
             min-height: 100svh;
             min-height: -webkit-fill-available;
