@@ -26,6 +26,16 @@ export default function Root({ children }: { children: ReactNode }) {
             position: fixed;
             inset: 0;
           }
+          body > div:first-child {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100dvh !important;
+            min-height: 100dvh !important;
+            margin: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+          }
         `}</style>
         <ScrollViewStyleReset />
       </head>
