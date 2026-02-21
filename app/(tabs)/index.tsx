@@ -190,9 +190,8 @@ export default function HomeScreen() {
               : require('../../start-screen.png')
         }
         style={styles.image}
-        imageStyle={Platform.OS === 'web' ? styles.imageWebOffset : undefined}
         fadeDuration={0}
-        resizeMode="cover">
+        resizeMode={Platform.OS === 'web' ? 'stretch' : 'cover'}>
         {!showLoginScreen ? (
           <>
             <Pressable style={styles.googleTap} onPress={onGoogle} />
@@ -381,9 +380,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-  },
-  imageWebOffset: {
-    top: -42,
   },
   fullScreenImageTap: {
     flex: 1,
