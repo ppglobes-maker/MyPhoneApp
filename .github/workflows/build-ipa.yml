@@ -2,8 +2,8 @@ name: Build unsigned IPA
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:  # Allows manual triggering
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,21 +21,24 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Install Expo CLI
-        run: npm install -g expo-cli
+      - name: Export Expo app
+        run: npx expo export --platform ios
+      
+      - name: Create Xcode project
+        run: npx expo prebuild --platform ios --clean
       
       - name: Build unsigned IPA
         run: |
-          expo build:ios --non-interactive --no-publish --output-name=myapp.ipa --no-wait
-          # Alternative direct command if above fails:
-          npx expo export --platform ios
           cd ios
-          xcodebuild -workspace *.xcworkspace -scheme myapp -configuration Release -sdk iphoneos CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          xcodebuild -workspace *.xcworkspace -scheme MyPhoneApp -configuration Release -sdk iphoneos CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+          cd ..
+      
+      - name: Find and rename IPA
+        run: |
+          find . -name "*.ipa" -type f -exec mv {} myapp-unsigned.ipa \;
       
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
           name: myapp-unsigned.ipa
-          path: |
-            *.ipa
-            **/*.ipa
+          path: myapp-unsigned.ipa
