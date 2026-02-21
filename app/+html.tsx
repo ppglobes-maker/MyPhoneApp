@@ -11,17 +11,25 @@ export default function Root({ children }: { children: ReactNode }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Snapchat" />
-        <meta name="theme-color" content="#fffc00" />
+        <meta name="theme-color" content="#00000000" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <style>{`
           html, body, #root {
             width: 100%;
             height: 100%;
+            min-height: 100dvh;
             margin: 0;
             padding: 0;
-            background: #fffc00;
+            background: transparent;
             overflow: hidden;
+          }
+          body {
+            position: fixed;
+            inset: 0;
+          }
+          #root {
+            height: 100dvh;
           }
         `}</style>
         <ScrollViewStyleReset />

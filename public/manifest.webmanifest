@@ -3,8 +3,8 @@
   "short_name": "Snapchat",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#fffc00",
-  "theme_color": "#fffc00",
+  "background_color": "#00000000",
+  "theme_color": "#00000000",
   "icons": [
     {
       "src": "/icon-192.png",
