@@ -174,7 +174,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={[styles.screen, Platform.OS === 'web' ? styles.screenWebBleed : null]}>
+    <View style={styles.screen}>
       <ImageBackground
         source={
           showLoginScreen
@@ -190,6 +190,7 @@ export default function HomeScreen() {
               : require('../../start-screen.png')
         }
         style={styles.image}
+        imageStyle={Platform.OS === 'web' ? styles.imageAssetWebBleed : undefined}
         fadeDuration={0}
         resizeMode="cover">
         {!showLoginScreen ? (
@@ -376,14 +377,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000000',
   },
-  screenWebBleed: {
-    marginTop: -48,
-    paddingTop: 48,
-  },
   image: {
     flex: 1,
     width: '100%',
     height: '100%',
+  },
+  imageAssetWebBleed: {
+    top: -56,
   },
   fullScreenImageTap: {
     flex: 1,
