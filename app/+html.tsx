@@ -11,7 +11,7 @@ export default function Root({ children }: { children: ReactNode }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Snapchat" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#fffc00" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <style>{`
@@ -20,7 +20,7 @@ export default function Root({ children }: { children: ReactNode }) {
             height: 100%;
             margin: 0;
             padding: 0;
-            background: #000;
+            background: #fffc00;
             overflow: hidden;
           }
         `}</style>
