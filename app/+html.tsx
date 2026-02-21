@@ -28,21 +28,16 @@ export default function Root({ children }: { children: ReactNode }) {
             height: 100%;
           }
           body > div:first-child {
-            --safe-top: env(safe-area-inset-top, 0px);
-            --safe-bottom: env(safe-area-inset-bottom, 0px);
             min-height: 100dvh;
             min-height: 100svh;
             min-height: -webkit-fill-available;
-            height: calc(100dvh + var(--safe-top));
+            height: 100dvh;
             width: 100%;
             position: fixed !important;
-            top: calc(-1 * var(--safe-top)) !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
+            inset: 0 !important;
             margin: 0 !important;
             padding-top: 0 !important;
-            padding-bottom: var(--safe-bottom) !important;
+            padding-bottom: 0 !important;
             box-sizing: border-box;
           }
           .app {
