@@ -191,7 +191,7 @@ export default function HomeScreen() {
         }
         style={styles.image}
         fadeDuration={0}
-        resizeMode="cover">
+        resizeMode="stretch">
         {!showLoginScreen ? (
           <>
             <Pressable style={styles.googleTap} onPress={onGoogle} />
@@ -378,6 +378,8 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
+    width: '100%',
+    height: '100%',
   },
   fullScreenImageTap: {
     flex: 1,
