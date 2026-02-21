@@ -174,7 +174,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={styles.screen}>
+    <View style={[styles.screen, Platform.OS === 'web' ? styles.screenWebBleed : null]}>
       <ImageBackground
         source={
           showLoginScreen
@@ -375,6 +375,10 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: '#000000',
+  },
+  screenWebBleed: {
+    marginTop: -48,
+    paddingTop: 48,
   },
   image: {
     flex: 1,
